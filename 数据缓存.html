@@ -1,0 +1,1786 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>数据缓存</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/数据缓存/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/axure/axQuery.js"></script>
+    <script src="resources/scripts/axure/globals.js"></script>
+    <script src="resources/scripts/axutils.js"></script>
+    <script src="resources/scripts/axure/annotation.js"></script>
+    <script src="resources/scripts/axure/axQuery.std.js"></script>
+    <script src="resources/scripts/axure/doc.js"></script>
+    <script src="data/document.js"></script>
+    <script src="resources/scripts/messagecenter.js"></script>
+    <script src="resources/scripts/axure/events.js"></script>
+    <script src="resources/scripts/axure/recording.js"></script>
+    <script src="resources/scripts/axure/action.js"></script>
+    <script src="resources/scripts/axure/expr.js"></script>
+    <script src="resources/scripts/axure/geometry.js"></script>
+    <script src="resources/scripts/axure/flyout.js"></script>
+    <script src="resources/scripts/axure/ie.js"></script>
+    <script src="resources/scripts/axure/model.js"></script>
+    <script src="resources/scripts/axure/repeater.js"></script>
+    <script src="resources/scripts/axure/sto.js"></script>
+    <script src="resources/scripts/axure/utils.temp.js"></script>
+    <script src="resources/scripts/axure/variables.js"></script>
+    <script src="resources/scripts/axure/drag.js"></script>
+    <script src="resources/scripts/axure/move.js"></script>
+    <script src="resources/scripts/axure/visibility.js"></script>
+    <script src="resources/scripts/axure/style.js"></script>
+    <script src="resources/scripts/axure/adaptive.js"></script>
+    <script src="resources/scripts/axure/tree.js"></script>
+    <script src="resources/scripts/axure/init.temp.js"></script>
+    <script src="files/数据缓存/data.js"></script>
+    <script src="resources/scripts/axure/legacy.js"></script>
+    <script src="resources/scripts/axure/viewer.js"></script>
+    <script src="resources/scripts/axure/math.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14209" class="ax_default box_2">
+        <div id="u14209_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14210" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14211" class="ax_default _二级标题">
+        <div id="u14211_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14212" class="text" style="visibility: visible;">
+          <p><span>数据缓存 Cache</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14213" class="ax_default label">
+        <div id="u14213_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14214" class="text" style="visibility: visible;">
+          <p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">APP从服务器获取数据后，需要对指定的关键数据进行本地缓存，以便在特定场景下可以加载和使用本地缓存数据，提升用户体验。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;"><br></span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">缓存数据加载场景包括但不限于以下三种情况：</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 等待新数据：在向服务器请求新数据时，让用户查看缓存数据，保证在数据请求过程中页面的可用性和可操作性。尤其在内容更新间隔较长或用户刷新频繁时。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 网络中断：在网络中断或无网环境中，APP无法顺利加载新数据，可让用户查看缓存数据，保证产品的可用性。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 反复查看：用户反复查看刚才浏览过的页面，此时使用缓存数据减少用户等待时间。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;"><br></span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">添加本地缓存的原因：</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 减少等待时间：APP请求数据时可能因为各种原因导致请求时间较长，使用缓存数据可减少用户等待时间，减少用户等待过程中的焦虑。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 节约成本：当请求数据量大、重复数据较多、用户刷新频繁时，使用缓存数据可减小服务器处理请求的压力，也能节约流量成本。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">&#149; 节约流量：获取某些数据（如图片）会消耗用户大量流量，频繁请求或数据量大消耗更甚，使用缓存数据帮助用户节省流量。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;"><br></span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">缓存限制: </span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">添加缓存需要考虑缓存节点，缓存时长，缓存清除节点以及缓存容量等限制，具体缓存场景会详细说明缓存限制。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;"><br></span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">缓存分类：</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">根据缓存时长可将缓存分为三类：临时缓存，打开生命周期缓存，长久缓存。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">临时缓存：针对某些页面，仅当用户处于某一功能模块或某个页面中才会缓存数据，当用户退出该模块或页面时即清除缓存。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">打开生命周期缓存：在APP某一次打开周期内缓存数据，当用户关闭APP（不包括</span><a id="u14215" class="link"><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;color:#0099CC;">临时中断</span></a><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">）时清除缓存，下次打开APP重新请求数据并缓存。</span></p><p><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#EEEEEE;">长久缓存：缓存数据到本地数据库，即使退出APP也不清除缓存，直到触发缓存清除节点或卸载APP才清除缓存，仅用于保存关键信息。</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14216" class="ax_default box_2">
+        <div id="u14216_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14217" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (iOS状态栏) -->
+
+      <!-- 状态栏 (组合) -->
+      <div id="u14219" class="ax_default" data-label="状态栏">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14220" class="ax_default box_3">
+          <div id="u14220_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14221" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14222" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14223" class="ax_default ellipse">
+            <img id="u14223_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14224" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14225" class="ax_default ellipse">
+            <img id="u14225_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14226" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14227" class="ax_default ellipse">
+            <img id="u14227_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14228" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14229" class="ax_default ellipse">
+            <img id="u14229_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14230" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14231" class="ax_default ellipse">
+            <img id="u14231_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14232" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14233" class="ax_default">
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14234" class="ax_default box_1">
+            <div id="u14234_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14235" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14236" class="ax_default box_1">
+            <div id="u14236_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14237" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14238" class="ax_default box_2">
+            <div id="u14238_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14239" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14240" class="ax_default label">
+          <div id="u14240_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14241" class="text" style="visibility: visible;">
+            <p><span>80%</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14242" class="ax_default label">
+          <div id="u14242_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14243" class="text" style="visibility: visible;">
+            <p><span>12:00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14244" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14245" class="ax_default box_3">
+          <div id="u14245_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14246" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14247" class="ax_default">
+
+          <!-- Unnamed (组合) -->
+          <div id="u14248" class="ax_default">
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14249" class="ax_default line">
+              <img id="u14249_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14250" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14251" class="ax_default line">
+              <img id="u14251_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14252" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14253" class="ax_default label">
+            <div id="u14253_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14254" class="text" style="visibility: visible;">
+              <p><span>返回</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14255" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14256" class="ax_default ellipse">
+            <img id="u14256_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14257" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14258" class="ax_default ellipse">
+            <img id="u14258_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14259" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14260" class="ax_default ellipse">
+            <img id="u14260_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14261" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14262" class="ax_default _三级标题">
+          <div id="u14262_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14263" class="text" style="visibility: visible;">
+            <p><span>B页面标题</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14264" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14265" class="ax_default box_3">
+          <div id="u14265_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14266" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14267" class="ax_default _图片">
+          <img id="u14267_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14268" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14269" class="ax_default box_3">
+          <div id="u14269_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14270" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14271" class="ax_default _图片">
+          <img id="u14271_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14272" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14273" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14274" class="ax_default box_3">
+          <div id="u14274_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14275" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14276" class="ax_default _图片">
+          <img id="u14276_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14277" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14278" class="ax_default box_3">
+          <div id="u14278_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14279" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14280" class="ax_default _图片">
+          <img id="u14280_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14281" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14282" class="ax_default box_3">
+        <div id="u14282_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14283" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14284" class="ax_default _图片">
+        <img id="u14284_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14285" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14286" class="ax_default box_3">
+        <div id="u14286_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14287" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14288" class="ax_default _图片">
+        <img id="u14288_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14289" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14290" class="ax_default box_3">
+        <div id="u14290_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14291" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14292" class="ax_default _图片">
+        <img id="u14292_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14293" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14294" class="ax_default box_3">
+        <div id="u14294_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14295" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14296" class="ax_default _图片">
+        <img id="u14296_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14297" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14298" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14299" class="ax_default box_3">
+          <div id="u14299_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14300" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14301" class="ax_default _图片">
+          <img id="u14301_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14302" class="text" style="visibility: visible;">
+            <p><span>数据1</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14303" class="ax_default box_3">
+          <div id="u14303_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14304" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14305" class="ax_default _图片">
+          <img id="u14305_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14306" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14307" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14308" class="ax_default box_3">
+          <div id="u14308_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14309" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14310" class="ax_default _图片">
+          <img id="u14310_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14311" class="text" style="visibility: visible;">
+            <p><span>数据2</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14312" class="ax_default box_3">
+          <div id="u14312_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14313" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14314" class="ax_default _图片">
+          <img id="u14314_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14315" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14316" class="ax_default box_2">
+        <div id="u14316_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14317" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (iOS状态栏) -->
+
+      <!-- 状态栏 (组合) -->
+      <div id="u14319" class="ax_default" data-label="状态栏">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14320" class="ax_default box_3">
+          <div id="u14320_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14321" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14322" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14323" class="ax_default ellipse">
+            <img id="u14323_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14324" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14325" class="ax_default ellipse">
+            <img id="u14325_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14326" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14327" class="ax_default ellipse">
+            <img id="u14327_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14328" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14329" class="ax_default ellipse">
+            <img id="u14329_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14330" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14331" class="ax_default ellipse">
+            <img id="u14331_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14332" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14333" class="ax_default">
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14334" class="ax_default box_1">
+            <div id="u14334_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14335" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14336" class="ax_default box_1">
+            <div id="u14336_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14337" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14338" class="ax_default box_2">
+            <div id="u14338_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14339" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14340" class="ax_default label">
+          <div id="u14340_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14341" class="text" style="visibility: visible;">
+            <p><span>80%</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14342" class="ax_default label">
+          <div id="u14342_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14343" class="text" style="visibility: visible;">
+            <p><span>12:00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14344" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14345" class="ax_default box_3">
+          <div id="u14345_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14346" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14347" class="ax_default">
+
+          <!-- Unnamed (组合) -->
+          <div id="u14348" class="ax_default">
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14349" class="ax_default line">
+              <img id="u14349_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14350" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14351" class="ax_default line">
+              <img id="u14351_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14352" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14353" class="ax_default label">
+            <div id="u14353_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14354" class="text" style="visibility: visible;">
+              <p><span>返回</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14355" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14356" class="ax_default ellipse">
+            <img id="u14356_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14357" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14358" class="ax_default ellipse">
+            <img id="u14358_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14359" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14360" class="ax_default ellipse">
+            <img id="u14360_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14361" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14362" class="ax_default _三级标题">
+          <div id="u14362_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14363" class="text" style="visibility: visible;">
+            <p><span>A页面标题</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14364" class="ax_default box_3">
+        <div id="u14364_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14365" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14366" class="ax_default box_3">
+        <div id="u14366_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14367" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14368" class="ax_default box_3">
+        <div id="u14368_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14369" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14370" class="ax_default box_3">
+        <div id="u14370_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14371" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14372" class="ax_default box_3">
+        <div id="u14372_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14373" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14374" class="ax_default box_3">
+        <div id="u14374_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14375" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14376" class="ax_default box_3">
+        <div id="u14376_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14377" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14378" class="ax_default box_3">
+        <div id="u14378_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14379" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14380" class="ax_default primary_button">
+        <div id="u14380_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14381" class="text" style="visibility: visible;">
+          <p><span>B页面入口</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14382" class="ax_default box_2">
+        <div id="u14382_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14383" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (iOS状态栏) -->
+
+      <!-- 状态栏 (组合) -->
+      <div id="u14385" class="ax_default" data-label="状态栏">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14386" class="ax_default box_3">
+          <div id="u14386_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14387" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14388" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14389" class="ax_default ellipse">
+            <img id="u14389_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14390" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14391" class="ax_default ellipse">
+            <img id="u14391_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14392" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14393" class="ax_default ellipse">
+            <img id="u14393_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14394" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14395" class="ax_default ellipse">
+            <img id="u14395_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14396" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14397" class="ax_default ellipse">
+            <img id="u14397_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14398" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14399" class="ax_default">
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14400" class="ax_default box_1">
+            <div id="u14400_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14401" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14402" class="ax_default box_1">
+            <div id="u14402_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14403" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14404" class="ax_default box_2">
+            <div id="u14404_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14405" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14406" class="ax_default label">
+          <div id="u14406_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14407" class="text" style="visibility: visible;">
+            <p><span>80%</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14408" class="ax_default label">
+          <div id="u14408_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14409" class="text" style="visibility: visible;">
+            <p><span>12:00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14410" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14411" class="ax_default box_3">
+          <div id="u14411_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14412" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14413" class="ax_default">
+
+          <!-- Unnamed (组合) -->
+          <div id="u14414" class="ax_default">
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14415" class="ax_default line">
+              <img id="u14415_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14416" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14417" class="ax_default line">
+              <img id="u14417_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14418" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14419" class="ax_default label">
+            <div id="u14419_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14420" class="text" style="visibility: visible;">
+              <p><span>返回</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14421" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14422" class="ax_default ellipse">
+            <img id="u14422_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14423" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14424" class="ax_default ellipse">
+            <img id="u14424_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14425" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14426" class="ax_default ellipse">
+            <img id="u14426_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14427" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14428" class="ax_default _三级标题">
+          <div id="u14428_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14429" class="text" style="visibility: visible;">
+            <p><span>B页面标题</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14430" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14431" class="ax_default box_3">
+          <div id="u14431_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14432" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14433" class="ax_default _图片">
+          <img id="u14433_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14434" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14435" class="ax_default box_3">
+          <div id="u14435_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14436" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14437" class="ax_default _图片">
+          <img id="u14437_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14438" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14439" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14440" class="ax_default box_3">
+          <div id="u14440_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14441" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14442" class="ax_default _图片">
+          <img id="u14442_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14443" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14444" class="ax_default box_3">
+          <div id="u14444_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14445" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14446" class="ax_default _图片">
+          <img id="u14446_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14447" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14448" class="ax_default box_3">
+        <div id="u14448_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14449" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14450" class="ax_default _图片">
+        <img id="u14450_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14451" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14452" class="ax_default box_3">
+        <div id="u14452_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14453" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14454" class="ax_default _图片">
+        <img id="u14454_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14455" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14456" class="ax_default box_3">
+        <div id="u14456_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14457" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14458" class="ax_default _图片">
+        <img id="u14458_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14459" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14460" class="ax_default box_3">
+        <div id="u14460_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14461" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14462" class="ax_default _图片">
+        <img id="u14462_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14463" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14464" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14465" class="ax_default box_3">
+          <div id="u14465_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14466" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14467" class="ax_default _图片">
+          <img id="u14467_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14468" class="text" style="visibility: visible;">
+            <p><span>数据1</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14469" class="ax_default box_3">
+          <div id="u14469_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14470" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14471" class="ax_default _图片">
+          <img id="u14471_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14472" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14473" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14474" class="ax_default box_3">
+          <div id="u14474_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14475" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14476" class="ax_default _图片">
+          <img id="u14476_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14477" class="text" style="visibility: visible;">
+            <p><span>数据2</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14478" class="ax_default box_3">
+          <div id="u14478_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14479" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14480" class="ax_default _图片">
+          <img id="u14480_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14481" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14482" class="ax_default box_2">
+        <div id="u14482_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14483" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (iOS状态栏) -->
+
+      <!-- 状态栏 (组合) -->
+      <div id="u14485" class="ax_default" data-label="状态栏">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14486" class="ax_default box_3">
+          <div id="u14486_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14487" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14488" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14489" class="ax_default ellipse">
+            <img id="u14489_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14490" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14491" class="ax_default ellipse">
+            <img id="u14491_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14492" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14493" class="ax_default ellipse">
+            <img id="u14493_img" class="img " src="images/按钮/u1205.png"/>
+            <!-- Unnamed () -->
+            <div id="u14494" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14495" class="ax_default ellipse">
+            <img id="u14495_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14496" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14497" class="ax_default ellipse">
+            <img id="u14497_img" class="img " src="images/按钮/u1211.png"/>
+            <!-- Unnamed () -->
+            <div id="u14498" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14499" class="ax_default">
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14500" class="ax_default box_1">
+            <div id="u14500_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14501" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14502" class="ax_default box_1">
+            <div id="u14502_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14503" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14504" class="ax_default box_2">
+            <div id="u14504_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14505" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14506" class="ax_default label">
+          <div id="u14506_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14507" class="text" style="visibility: visible;">
+            <p><span>80%</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14508" class="ax_default label">
+          <div id="u14508_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14509" class="text" style="visibility: visible;">
+            <p><span>12:00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14510" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14511" class="ax_default box_3">
+          <div id="u14511_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14512" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14513" class="ax_default">
+
+          <!-- Unnamed (组合) -->
+          <div id="u14514" class="ax_default">
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14515" class="ax_default line">
+              <img id="u14515_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14516" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+
+            <!-- Unnamed (水平线) -->
+            <div id="u14517" class="ax_default line">
+              <img id="u14517_img" class="img " src="images/按钮/u1232.png"/>
+              <!-- Unnamed () -->
+              <div id="u14518" class="text" style="display: none; visibility: hidden">
+                <p><span></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unnamed (矩形) -->
+          <div id="u14519" class="ax_default label">
+            <div id="u14519_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u14520" class="text" style="visibility: visible;">
+              <p><span>返回</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (组合) -->
+        <div id="u14521" class="ax_default">
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14522" class="ax_default ellipse">
+            <img id="u14522_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14523" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14524" class="ax_default ellipse">
+            <img id="u14524_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14525" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (椭圆形) -->
+          <div id="u14526" class="ax_default ellipse">
+            <img id="u14526_img" class="img " src="images/按钮/u1239.png"/>
+            <!-- Unnamed () -->
+            <div id="u14527" class="text" style="display: none; visibility: hidden">
+              <p><span></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14528" class="ax_default _三级标题">
+          <div id="u14528_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14529" class="text" style="visibility: visible;">
+            <p><span>B页面标题</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14530" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14531" class="ax_default box_3">
+          <div id="u14531_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14532" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14533" class="ax_default _图片">
+          <img id="u14533_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14534" class="text" style="visibility: visible;">
+            <p><span>数据1</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14535" class="ax_default box_3">
+          <div id="u14535_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14536" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14537" class="ax_default _图片">
+          <img id="u14537_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14538" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14539" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14540" class="ax_default box_3">
+          <div id="u14540_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14541" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14542" class="ax_default _图片">
+          <img id="u14542_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14543" class="text" style="visibility: visible;">
+            <p><span>数据2</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14544" class="ax_default box_3">
+          <div id="u14544_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14545" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14546" class="ax_default _图片">
+          <img id="u14546_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14547" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14548" class="ax_default box_3">
+        <div id="u14548_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14549" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14550" class="ax_default _图片">
+        <img id="u14550_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14551" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14552" class="ax_default box_3">
+        <div id="u14552_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14553" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14554" class="ax_default _图片">
+        <img id="u14554_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14555" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14556" class="ax_default box_3">
+        <div id="u14556_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14557" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14558" class="ax_default _图片">
+        <img id="u14558_img" class="img " src="images/页面加载/u11610.png"/>
+        <!-- Unnamed () -->
+        <div id="u14559" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14560" class="ax_default box_3">
+        <div id="u14560_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14561" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片) -->
+      <div id="u14562" class="ax_default _图片">
+        <img id="u14562_img" class="img " src="images/页面加载/u11639.png"/>
+        <!-- Unnamed () -->
+        <div id="u14563" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14564" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14565" class="ax_default box_3">
+          <div id="u14565_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14566" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14567" class="ax_default _图片">
+          <img id="u14567_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14568" class="text" style="visibility: visible;">
+            <p><span>新数据</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14569" class="ax_default box_3">
+          <div id="u14569_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14570" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14571" class="ax_default _图片">
+          <img id="u14571_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14572" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14573" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14574" class="ax_default box_3">
+          <div id="u14574_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14575" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14576" class="ax_default _图片">
+          <img id="u14576_img" class="img " src="images/页面加载/u11610.png"/>
+          <!-- Unnamed () -->
+          <div id="u14577" class="text" style="visibility: visible;">
+            <p><span>新数据</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14578" class="ax_default box_3">
+          <div id="u14578_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14579" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14580" class="ax_default _图片">
+          <img id="u14580_img" class="img " src="images/页面加载/u11614.png"/>
+          <!-- Unnamed () -->
+          <div id="u14581" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (组合) -->
+      <div id="u14582" class="ax_default">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u14583" class="ax_default box_2">
+          <div id="u14583_div" class=""></div>
+          <!-- Unnamed () -->
+          <div id="u14584" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (图片) -->
+        <div id="u14585" class="ax_default _图片">
+          <img id="u14585_img" class="img " src="images/键盘/u2721.png"/>
+          <!-- Unnamed () -->
+          <div id="u14586" class="text" style="display: none; visibility: hidden">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (连接线) -->
+      <div id="u14587" class="ax_default _连接线">
+        <img id="u14587_seg0" class="img " src="images/页面加载/u12089_seg0.png" alt="u14587_seg0"/>
+        <img id="u14587_seg1" class="img " src="images/按钮/u1395_seg1.png" alt="u14587_seg1"/>
+        <!-- Unnamed () -->
+        <div id="u14588" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (连接线) -->
+      <div id="u14589" class="ax_default _连接线">
+        <img id="u14589_seg0" class="img " src="images/数据缓存/u14589_seg0.png" alt="u14589_seg0"/>
+        <img id="u14589_seg1" class="img " src="images/按钮/u1395_seg1.png" alt="u14589_seg1"/>
+        <!-- Unnamed () -->
+        <div id="u14590" class="text" style="visibility: visible;">
+          <p><span>进入</span></p><p><span>其他</span></p><p><span>页面</span></p><p><span>后，再</span></p><p><span>进入</span></p><p><span>B页面</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (连接线) -->
+      <div id="u14591" class="ax_default _连接线">
+        <img id="u14591_seg0" class="img " src="images/数据缓存/u14591_seg0.png" alt="u14591_seg0"/>
+        <img id="u14591_seg1" class="img " src="images/数据缓存/u14591_seg1.png" alt="u14591_seg1"/>
+        <!-- Unnamed () -->
+        <div id="u14592" class="text" style="visibility: visible;">
+          <p><span>展示</span></p><p><span>新数据</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14593" class="ax_default label">
+        <div id="u14593_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14594" class="text" style="visibility: visible;">
+          <p><span>点击B页面入口，开始加载并缓存数据</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14595" class="ax_default label">
+        <div id="u14595_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14596" class="text" style="visibility: visible;">
+          <p><span>展示以获取的数据</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14597" class="ax_default label">
+        <div id="u14597_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14598" class="text" style="visibility: visible;">
+          <p><span>重新回到B页面，加载并展示缓存数据</span></p><p><span>异步请求新数据</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u14599" class="ax_default label">
+        <div id="u14599_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u14600" class="text" style="visibility: visible;">
+          <p><span>新数据请求成功后，展示新数据，更新缓存</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
